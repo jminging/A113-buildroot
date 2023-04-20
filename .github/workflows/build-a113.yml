@@ -38,13 +38,12 @@ jobs:
     steps:
       - name: SSH connection to Actions
         uses: csexton/debugger-action@master
-        if: env.SSH_ACTIONS == 'true' || contains(github.event.action, 'ssh')
 
       - name: Install Packages
         run: |
           sudo apt-get -qq update
           sudo apt-get -qq upgrade
-          sudo apt-get install -y make gcc g++ unzip bc python device-tree-compiler mtd-utils
+          sudo apt-get install -y make gcc g++ unzip bc python3 device-tree-compiler mtd-utils
           sudo apt install wget git bc bison linux-headers-$(uname -r)
           
 
